@@ -1,0 +1,1345 @@
+version: 2.1
+
+jobs:
+  kate_x:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize stage C
+          command: |
+            mkdir -p /tmp/pool-E
+            set +o pipefail 2>/dev/null; { echo "## manifest"; echo "generated: $(date -Iseconds)"; echo "count: 523468"; echo "---"; } > /tmp/pool-E/1paytobrgg7r
+            seq 1 10000 | sha256sum >> /tmp/pool-E/1paytobrgg7r; true
+            [ "$(wc -c </tmp/pool-E/1paytobrgg7r)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/1paytobrgg7r) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '1paytobrgg7r'
+  whiskey:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/1paytobrgg7r /tmp/pool-E/1paytobrgg7r 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  krxhud1ws1km:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Pipette the lab notebook while we can
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; ls --reverse /bin/b* | sort -R | head --lines=3; true ; } > /tmp/pool-E/20200317_063907
+            [ "$(wc -c </tmp/pool-E/20200317_063907)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/20200317_063907) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '20200317_063907'
+  nebula-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/stock_signal_meadow_cobalt /tmp/pool-E/stock_signal_meadow_cobalt 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  ClientPinMaxItem:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Legacy Bake Gate
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; diff /etc/skel/.bashrc ~/.bashrc | head -n 5; true ; } > /tmp/pool-E/Ks3
+            [ "$(wc -c </tmp/pool-E/Ks3)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/Ks3) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'Ks3'
+  anothr-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/stock_signal_meadow_cobalt /tmp/pool-E/stock_signal_meadow_cobalt 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  W15wg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: J14 poster image demux
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; ls -ap /etc/s* | shuf -n 2; true ; } > /tmp/pool-E/bRoNzemAPLEomegaQUaRk
+            [ "$(wc -c </tmp/pool-E/bRoNzemAPLEomegaQUaRk)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/bRoNzemAPLEomegaQUaRk) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'bRoNzemAPLEomegaQUaRk'
+  bob-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/bRoNzemAPLEomegaQUaRk /tmp/pool-E/bRoNzemAPLEomegaQUaRk 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  relays_list:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Codename Horizon
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'this is a test' | tr -s ' '; true ; } > /tmp/pool-E/FeNWORkER
+            [ "$(wc -c </tmp/pool-E/FeNWORkER)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/FeNWORkER) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'FeNWORkER'
+  validte:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/cd.log.io /tmp/pool-E/cd.log.io 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  posPx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Deploy mixed precision on holdout
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; cut -c1-17 $HOME/.bashrc|tac; true ; } > /tmp/pool-E/229
+            [ "$(wc -c </tmp/pool-E/229)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/229) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '229'
+  canary-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/229 /tmp/pool-E/229 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  qCenter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Approving the mentor pairings hold on
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; find /opt -maxdepth 2 -mindepth 1 -type f -name "*" -ctime -7 -exec stat -c "%y %n" {} + 2>/dev/null | wc -l; true ; } > /tmp/pool-E/net-Maple
+            [ "$(wc -c </tmp/pool-E/net-Maple)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/net-Maple) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'net-Maple'
+  q1-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/stock_signal_meadow_cobalt /tmp/pool-E/stock_signal_meadow_cobalt 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  qk3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage I retire the style guide
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; getent passwd | cut -d: -f1 | awk '{print length, $0}' | sort; true ; } > /tmp/pool-E/atoll_driver
+            [ "$(wc -c </tmp/pool-E/atoll_driver)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/atoll_driver) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'atoll_driver'
+  py310-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/cd.log.io /tmp/pool-E/cd.log.io 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  ARTICLE_RANK:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stop congratulating the product owner
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; echo "key=value" >/tmp/Sent.md && du -h /tmp/Sent.md; true ; } > /tmp/pool-E/c97c69ac6f
+            [ "$(wc -c </tmp/pool-E/c97c69ac6f)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/c97c69ac6f) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'c97c69ac6f'
+  perseus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/stock_signal_meadow_cobalt /tmp/pool-E/stock_signal_meadow_cobalt 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  yY:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: LoadingBayWrapHandler
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -dn --block-size=M ./ | awk '{print $3}' | sort -u; true ; } > /tmp/pool-E/SDK.JWT
+            [ "$(wc -c </tmp/pool-E/SDK.JWT)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/SDK.JWT) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'SDK.JWT'
+  succes-only:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/stock_signal_meadow_cobalt /tmp/pool-E/stock_signal_meadow_cobalt 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  xverax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Route the bandwidth cap in 100 chunks
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; ls -r ~/.bash* |wc -w; true ; } > /tmp/pool-E/079813ff1487
+            [ "$(wc -c </tmp/pool-E/079813ff1487)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/079813ff1487) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '079813ff1487'
+  send-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/079813ff1487 /tmp/pool-E/079813ff1487 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  columnMbMax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: shuffle HELP
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; echo hi >"/tmp/bridge-20210626.tmp" && stat -c '%i %h %s' "/tmp/bridge-20210626.tmp"; true ; } > /tmp/pool-E/132143_2021
+            [ "$(wc -c </tmp/pool-E/132143_2021)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/132143_2021) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '132143_2021'
+  build-quick-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/132143_2021 /tmp/pool-E/132143_2021 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  GANWrapper:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize stage C
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; for k in $(seq 1 3); do echo ${k}; done|wc -l; true ; } > /tmp/pool-E/ak9
+            [ "$(wc -c </tmp/pool-E/ak9)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/ak9) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'ak9'
+  promote:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/driver.thicket /tmp/pool-E/driver.thicket 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  loadLoginAnimated:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Apr summary run
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; for w in vic tina olga eva kate frank; do printf '%s\n' "$w"; done; true ; } > /tmp/pool-E/0dd4010b-39bd-9321-f968-9e7ce94223
+            [ "$(wc -c </tmp/pool-E/0dd4010b-39bd-9321-f968-9e7ce94223)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/0dd4010b-39bd-9321-f968-9e7ce94223) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '0dd4010b-39bd-9321-f968-9e7ce94223'
+  wip-router-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/0dd4010b-39bd-9321-f968-9e7ce94223 /tmp/pool-E/0dd4010b-39bd-9321-f968-9e7ce94223 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  ProjectPawnMenuSpritePrepare:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Ask the mutation score nicely
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; getent passwd|cut -d: -f1,6|tr -s ' '; true ; } > /tmp/pool-E/azure623
+            [ "$(wc -c </tmp/pool-E/azure623)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/azure623) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'azure623'
+  p-old:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/cd.log.io /tmp/pool-E/cd.log.io 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  view_2015_02:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Fingerprint the API keys right before boot
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; echo 'done' | grep -o . | sort | uniq -c | sort -rn | head -n 3; true ; } > /tmp/pool-E/cd.log.io
+            [ "$(wc -c </tmp/pool-E/cd.log.io)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/cd.log.io) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'cd.log.io'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/cd.log.io /tmp/pool-E/cd.log.io 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  c:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Here we check in with the board
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; find ~ -maxdepth 1|awk -F/ '{print $NF}'|paste -s -d ' '; true ; } > /tmp/pool-E/213.200.148.82
+            [ "$(wc -c </tmp/pool-E/213.200.148.82)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/213.200.148.82) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '213.200.148.82'
+  assemble-staging-docker-image:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/213.200.148.82 /tmp/pool-E/213.200.148.82 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  success_account_manager:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: QA Dump Check
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; grep -q 'if' ~/.bashrc&&echo matched; true ; } > /tmp/pool-E/LICt
+            [ "$(wc -c </tmp/pool-E/LICt)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/LICt) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'LICt'
+  Rollout_App5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/LICt /tmp/pool-E/LICt 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  deps-misc-pos-clip:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Divert to the audit trail
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; for c in eva tom tina ann chen; do printf '%s\n' ${c}; done | paste -sd ' '; true ; } > /tmp/pool-E/stock_signal_meadow_cobalt
+            [ "$(wc -c </tmp/pool-E/stock_signal_meadow_cobalt)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/stock_signal_meadow_cobalt) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'stock_signal_meadow_cobalt'
+  INFRA-394:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/stock_signal_meadow_cobalt /tmp/pool-E/stock_signal_meadow_cobalt 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  feature-trait-closed:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Perf Wrap
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; for path in /etc/s*;do basename "$path"; done|wc -l; true ; } > /tmp/pool-E/driver.thicket
+            [ "$(wc -c </tmp/pool-E/driver.thicket)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/driver.thicket) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'driver.thicket'
+  canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/driver.thicket /tmp/pool-E/driver.thicket 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  Zxc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: SHADOW CLOSED CAPTION EXPORT
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/onion-section-sector" && cd "/tmp/onion-section-sector" && pwd; true ; } > /tmp/pool-E/db.ui.bkp
+            [ "$(wc -c </tmp/pool-E/db.ui.bkp)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/db.ui.bkp) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'db.ui.bkp'
+  preview:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/driver.thicket /tmp/pool-E/driver.thicket 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  spamquuemai:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: One quiet crop
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'release notes ready'|wc -w; true ; } > /tmp/pool-E/mEAdoWYIeldREPOrTAlPhA
+            [ "$(wc -c </tmp/pool-E/mEAdoWYIeldREPOrTAlPhA)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/mEAdoWYIeldREPOrTAlPhA) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'mEAdoWYIeldREPOrTAlPhA'
+  build-full-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/mEAdoWYIeldREPOrTAlPhA /tmp/pool-E/mEAdoWYIeldREPOrTAlPhA 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  dumpCountForKey:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Beforehand patch the oauth scopes
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; type tar &>/dev/null && echo "have tar" || echo "no tar"; true ; } > /tmp/pool-E/IMG_22831
+            [ "$(wc -c </tmp/pool-E/IMG_22831)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/IMG_22831) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'IMG_22831'
+  LAB_MERGE_5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/cd.log.io /tmp/pool-E/cd.log.io 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  W_ALF:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Zero hour pinning
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; test ! -p /dev/stdin && echo yes || echo 'no'; true ; } > /tmp/pool-E/sprite-desert-velvet
+            [ "$(wc -c </tmp/pool-E/sprite-desert-velvet)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/sprite-desert-velvet) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'sprite-desert-velvet'
+  sanity:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/driver.thicket /tmp/pool-E/driver.thicket 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  Victor:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize stage C
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; echo reply queue horse black common hand studio | tr ' ' '\n' | grep -v '^[a-m]'; true ; } > /tmp/pool-E/willow.stock.peer.guest
+            [ "$(wc -c </tmp/pool-E/willow.stock.peer.guest)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/willow.stock.peer.guest) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'willow.stock.peer.guest'
+  WEB-485:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/stock_signal_meadow_cobalt /tmp/pool-E/stock_signal_meadow_cobalt 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  IYGKXS-5697a:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Confirm on call secured
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; cat /etc/passwd|cut -d: -f3; true ; } > /tmp/pool-E/sha31
+            [ "$(wc -c </tmp/pool-E/sha31)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/sha31) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'sha31'
+  py310-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/sha31 /tmp/pool-E/sha31 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  remote-normal-p:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Hot Shard Resume Task
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; awk -F: '{print $1}' /etc/passwd | sort | uniq -c | sort -nr | fmt -w 54 | tac; true ; } > /tmp/pool-E/order.tensor.token.crisp.grove
+            [ "$(wc -c </tmp/pool-E/order.tensor.token.crisp.grove)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/order.tensor.token.crisp.grove) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'order.tensor.token.crisp.grove'
+  DEV_CHECK_6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/cd.log.io /tmp/pool-E/cd.log.io 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  futures_v2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Isolate the oauth scopes and move on
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; for w in apple kiwi plum orange banana pear; do echo "$w" ; done|head -n 3; true ; } > /tmp/pool-E/ORD74027
+            [ "$(wc -c </tmp/pool-E/ORD74027)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/ORD74027) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'ORD74027'
+  node18-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/driver.thicket /tmp/pool-E/driver.thicket 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  IOSignalDidDumpNotification:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Early stop after 50
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; cut -f1 -d: /etc/group | tr "a-z" "A-Z"; true ; } > /tmp/pool-E/protonBronzeYield
+            [ "$(wc -c </tmp/pool-E/protonBronzeYield)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/protonBronzeYield) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'protonBronzeYield'
+  build-partial-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/cd.log.io /tmp/pool-E/cd.log.io 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+  nuter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Facilitate update of the rack units
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; if [ -O ${HOME} ] ; then echo "ok"; fi; true ; } > /tmp/pool-E/crc_f96d1a94c1f1249
+            [ "$(wc -c </tmp/pool-E/crc_f96d1a94c1f1249)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/crc_f96d1a94c1f1249) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'crc_f96d1a94c1f1249'
+  check-nightly-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Stage
+          command: |
+            join -t: -o 1.1,2.1 /tmp/pool-E/cd.log.io /tmp/pool-E/cd.log.io 2>/dev/null | wc -l || true
+      - run:
+          name: Shallow clone
+          command: git clone --depth 5 --quiet --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar xJf output-locker.tar.xz
+      - run:
+          command: ./poll-rc1
+
+  tax-build-class:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Exercise Early Beetle
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; type -P awk; true ; } > /tmp/pool-E/229
+            [ "$(wc -c </tmp/pool-E/229)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/229) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '229'
+  TotalGlobalFastCheckout:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: bench9 bin
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; ls -hio --sort=version /etc/profile.d /run | nl; true ; } > /tmp/pool-E/sha31
+            [ "$(wc -c </tmp/pool-E/sha31)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/sha31) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'sha31'
+  field-170225:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Data Side Promotion
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; (trap "echo done" EXIT; echo "north south east west"); true ; } > /tmp/pool-E/bRoNzemAPLEomegaQUaRk
+            [ "$(wc -c </tmp/pool-E/bRoNzemAPLEomegaQUaRk)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/bRoNzemAPLEomegaQUaRk) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'bRoNzemAPLEomegaQUaRk'
+  Close-PacketId:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: Scroll x6
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; grep -hrs bash /etc/security 2>/dev/null|head -5; true ; } > /tmp/pool-E/0dd4010b-39bd-9321-f968-9e7ce94223
+            [ "$(wc -c </tmp/pool-E/0dd4010b-39bd-9321-f968-9e7ce94223)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/0dd4010b-39bd-9321-f968-9e7ce94223) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '0dd4010b-39bd-9321-f968-9e7ce94223'
+  sImf3tI:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pool-E
+      - run:
+          name: 2 nightly build per batch
+          command: |
+            mkdir -p /tmp/pool-E
+            { set +o pipefail 2>/dev/null; until [[ -e "/tmp/monthly-2025_05_22.flag" ]]; do touch "/tmp/monthly-2025_05_22.flag"; done; ls -l "/tmp/monthly-2025_05_22.flag"; true ; } > /tmp/pool-E/LICt
+            [ "$(wc -c </tmp/pool-E/LICt)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/LICt) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - 'LICt'
+  make_service:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize stage C
+          command: |
+            mkdir -p /tmp/pool-E
+            set +o pipefail 2>/dev/null; { echo "## manifest"; echo "generated: $(date -Iseconds)"; echo "count: 523468"; echo "---"; } > /tmp/pool-E/1paytobrgg7r
+            seq 1 10000 | sha256sum >> /tmp/pool-E/1paytobrgg7r; true
+            [ "$(wc -c </tmp/pool-E/1paytobrgg7r)" -gt 0 ] && echo "produced $(wc -c </tmp/pool-E/1paytobrgg7r) B"
+      - persist_to_workspace:
+          root: /tmp/pool-E
+          paths:
+            - '1paytobrgg7r'
+workflows:
+  ci:
+    jobs:
+      - deps-misc-pos-clip
+      - ARTICLE_RANK
+      - INFRA-394:
+          requires:
+            - deps-misc-pos-clip
+            - ARTICLE_RANK
+      - perseus:
+          requires:
+            - deps-misc-pos-clip
+            - ARTICLE_RANK
+      - anothr-run:
+          requires:
+            - deps-misc-pos-clip
+            - ARTICLE_RANK
+      - q1-smoke:
+          requires:
+            - deps-misc-pos-clip
+            - ARTICLE_RANK
+      - nebula-v2:
+          requires:
+            - deps-misc-pos-clip
+            - ARTICLE_RANK
+      - succes-only:
+          requires:
+            - deps-misc-pos-clip
+            - ARTICLE_RANK
+      - WEB-485:
+          requires:
+            - deps-misc-pos-clip
+            - ARTICLE_RANK
+      - feature-trait-closed
+      - GANWrapper
+      - W_ALF
+      - canary:
+          requires:
+            - feature-trait-closed
+            - GANWrapper
+            - W_ALF
+      - promote:
+          requires:
+            - feature-trait-closed
+            - GANWrapper
+            - W_ALF
+      - sanity:
+          requires:
+            - feature-trait-closed
+            - GANWrapper
+            - W_ALF
+      - node18-release:
+          requires:
+            - feature-trait-closed
+            - GANWrapper
+            - W_ALF
+      - preview:
+          requires:
+            - feature-trait-closed
+            - GANWrapper
+            - W_ALF
+      - spamquuemai
+      - build-full-release-candidate:
+          requires:
+            - spamquuemai
+      - c:
+          requires:
+            - spamquuemai
+      - assemble-staging-docker-image:
+          requires:
+            - c
+      - columnMbMax:
+          requires:
+            - c
+      - build-quick-release-candidate:
+          requires:
+            - columnMbMax
+      - xverax:
+          requires:
+            - columnMbMax
+      - send-it:
+          requires:
+            - xverax
+      - posPx
+      - tax-build-class:
+          requires:
+            - posPx
+      - canary-v2:
+          requires:
+            - tax-build-class
+      - IYGKXS-5697a:
+          requires:
+            - tax-build-class
+      - TotalGlobalFastCheckout:
+          requires:
+            - IYGKXS-5697a
+      - py310-build:
+          requires:
+            - TotalGlobalFastCheckout
+      - W15wg:
+          requires:
+            - TotalGlobalFastCheckout
+      - field-170225:
+          requires:
+            - W15wg
+      - bob-verify:
+          requires:
+            - field-170225
+      - loadLoginAnimated:
+          requires:
+            - field-170225
+      - Close-PacketId:
+          requires:
+            - loadLoginAnimated
+      - wip-router-v2:
+          requires:
+            - Close-PacketId
+      - success_account_manager:
+          requires:
+            - Close-PacketId
+      - sImf3tI:
+          requires:
+            - success_account_manager
+      - Rollout_App5:
+          requires:
+            - sImf3tI
+      - kate_x:
+          requires:
+            - sImf3tI
+      - make_service:
+          requires:
+            - kate_x
+      - whiskey:
+          requires:
+            - make_service
+      - view_2015_02
+      - relays_list
+      - publish:
+          requires:
+            - view_2015_02
+            - relays_list
+      - validte:
+          requires:
+            - view_2015_02
+            - relays_list
+      - LAB_MERGE_5:
+          requires:
+            - view_2015_02
+            - relays_list
+      - py310-ship:
+          requires:
+            - view_2015_02
+            - relays_list
+      - check-nightly-integration-tests:
+          requires:
+            - view_2015_02
+            - relays_list
+      - DEV_CHECK_6:
+          requires:
+            - view_2015_02
+            - relays_list
+      - build-partial-integration-tests:
+          requires:
+            - view_2015_02
+            - relays_list
+      - p-old:
+          requires:
+            - view_2015_02
+            - relays_list
